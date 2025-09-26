@@ -197,16 +197,39 @@
       </p>
     </section>
 
-    <section id="contact">
-      <h2>Contato</h2>
-      <form action="https://formspree.io/f/xkgqgdzy" method="POST">
-        <input type="text" name="name" placeholder="Seu nome" required>
-        <input type="email" name="email" placeholder="Seu e-mail" required>
-        <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-      <p style="text-align:center; margin-top:15px;">Ou nos chame pelo WhatsApp: <strong>(19) 99994-6522</strong></p>
-    </section>
+   <section id="contact">
+  <h2>Contato</h2>
+  <form id="contact-form" action="https://formspree.io/f/xkgqgdzy" method="POST">
+    <input type="text" id="name" name="name" placeholder="Seu nome" required>
+    <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+    <textarea id="message" name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+    
+    <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+      <button type="submit">Enviar por E-mail</button>
+      <button type="button" onclick="sendWhatsApp()">Enviar por WhatsApp</button>
+    </div>
+  </form>
+
+  <p style="text-align:center; margin-top:15px;">
+    Ou nos chame diretamente:  
+    <strong>(19 99994-6522</strong>
+  </p>
+</section>
+
+<script>
+  function sendWhatsApp() {
+    const nome = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const msg = document.getElementById("message").value;
+
+    const telefone = "5519999946522"; // Exemplo: 5511999999999
+    const texto = `Olá, meu nome é ${nome}. Meu e-mail: ${email}. Mensagem: ${msg}`;
+
+    const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
+    window.open(url, "_blank");
+  }
+</script>
+
 
     <footer>
       <p>&copy; 2025 S.A.G Silvas Autonomation Group. Todos os direitos reservados.</p>
